@@ -1,6 +1,6 @@
 AdjustableCamera = {}
 
-AdjustableCamera.offsetStep = 0.01
+AdjustableCamera.offsetStep = 0.02
 
 function AdjustableCamera.prerequisitesPresent(specializations)
     return true
@@ -54,6 +54,20 @@ function AdjustableCamera:actionEventCameraBackward(actionName, inputValue, call
     end
 end
 
+function AdjustableCamera:actionEventCameraLeft(actionName, inputValue, callbackState, isAnalog)
+    -- print("AdjustableCamera.actionEventCameraLeft");
+    if self.isClient then
+        self:adjustCamera(AdjustableCamera.offsetStep, 0, 0)
+    end
+end
+
+function AdjustableCamera:actionEventCameraRight(actionName, inputValue, callbackState, isAnalog)
+    -- print("AdjustableCamera.actionEventCameraRight");
+    if self.isClient then
+        self:adjustCamera(-AdjustableCamera.offsetStep, 0, 0)
+    end
+end
+
 function AdjustableCamera:actionEventCameraReset()
     -- print("AdjustableCamera.actionEventCameraReset");
     local spec = self.spec_adjustableCamera
@@ -87,16 +101,12 @@ function AdjustableCamera:onRegisterActionEvents(isActiveForInput, isActiveForIn
             g_inputBinding:setActionEventTextPriority(actionEventId, GS_PRIO_LOW)
             _, actionEventId = self:addActionEvent(AdjustableCamera.actionEvents, InputAction.ADJUSTABLE_CAMERA_BACKWARD, self, AdjustableCamera.actionEventCameraBackward, false, true, false, true, nil)
             g_inputBinding:setActionEventTextPriority(actionEventId, GS_PRIO_LOW)
+            _, actionEventId = self:addActionEvent(AdjustableCamera.actionEvents, InputAction.ADJUSTABLE_CAMERA_LEFT, self, AdjustableCamera.actionEventCameraLeft, false, true, false, true, nil)
+            g_inputBinding:setActionEventTextPriority(actionEventId, GS_PRIO_LOW)
+            _, actionEventId = self:addActionEvent(AdjustableCamera.actionEvents, InputAction.ADJUSTABLE_CAMERA_RIGHT, self, AdjustableCamera.actionEventCameraRight, false, true, false, true, nil)
+            g_inputBinding:setActionEventTextPriority(actionEventId, GS_PRIO_LOW)
             _, actionEventId = self:addActionEvent(AdjustableCamera.actionEvents, InputAction.ADJUSTABLE_CAMERA_RESET, self, AdjustableCamera.actionEventCameraReset, false, true, false, true, nil)
             g_inputBinding:setActionEventTextPriority(actionEventId, GS_PRIO_LOW)
-            -- _, actionEventId = self:addActionEvent(DrivingStickCruiseControl.actionEvents, InputAction.DRIVING_STICK_DECELERATE, self, DrivingStickCruiseControl.actionEventDecelerate, false, true, true, true, nil)
-            -- g_inputBinding:setActionEventTextPriority(actionEventId, GS_PRIO_LOW)
-            -- _, actionEventId = self:addActionEvent(DrivingStickCruiseControl.actionEvents, InputAction.DRIVING_STICK_SWITCH_DIRECTION, self, DrivingStickCruiseControl.actionEventSwitchDirection, false, true, true, true, nil)
-            -- g_inputBinding:setActionEventTextPriority(actionEventId, GS_PRIO_LOW)
-            -- _, actionEventId = self:addActionEvent(DrivingStickCruiseControl.actionEvents, InputAction.DRIVING_STICK_SAVE_CURRENT_CRUISECONTROL_SPEED, self, DrivingStickCruiseControl.actionEventSaveCurrentCruiseControlSpeed, false, true, false, true, nil)
-            -- g_inputBinding:setActionEventTextPriority(actionEventId, GS_PRIO_LOW)
-            -- _, actionEventId = self:addActionEvent(DrivingStickCruiseControl.actionEvents, InputAction.DRIVING_STICK_ACCELERATE_TO_MAX, self, DrivingStickCruiseControl.actionEventAccelerateToMax, false, true, true, true, nil)
-            -- g_inputBinding:setActionEventTextPriority(actionEventId, GS_PRIO_LOW)
         end
     end
 end

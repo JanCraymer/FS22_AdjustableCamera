@@ -18,12 +18,16 @@
     <actions>
 		<action name="ADJUSTABLE_CAMERA_FORWARD" axisType="HALF" />
 		<action name="ADJUSTABLE_CAMERA_BACKWARD" axisType="HALF" />
+		<action name="ADJUSTABLE_CAMERA_LEFT" axisType="HALF" />
+		<action name="ADJUSTABLE_CAMERA_RIGHT" axisType="HALF" />
 		<action name="ADJUSTABLE_CAMERA_RESET" axisType="HALF" />
 	</actions>
 
     <inputBinding>
 		<actionBinding action="ADJUSTABLE_CAMERA_FORWARD"></actionBinding>
 		<actionBinding action="ADJUSTABLE_CAMERA_BACKWARD"></actionBinding>
+		<actionBinding action="ADJUSTABLE_CAMERA_LEFT"></actionBinding>
+		<actionBinding action="ADJUSTABLE_CAMERA_RIGHT"></actionBinding>
 		<actionBinding action="ADJUSTABLE_CAMERA_RESET"></actionBinding>
 	</inputBinding>
 </modDesc>
