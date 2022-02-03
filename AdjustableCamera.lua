@@ -68,6 +68,20 @@ function AdjustableCamera:actionEventCameraRight(actionName, inputValue, callbac
     end
 end
 
+function AdjustableCamera:actionEventCameraDown(actionName, inputValue, callbackState, isAnalog)
+    -- print("AdjustableCamera.actionEventCameraDown");
+    if self.isClient then
+        self:adjustCamera(0, -AdjustableCamera.offsetStep, 0)
+    end
+end
+
+function AdjustableCamera:actionEventCameraUp(actionName, inputValue, callbackState, isAnalog)
+    -- print("AdjustableCamera.actionEventCameraDown");
+    if self.isClient then
+        self:adjustCamera(0, AdjustableCamera.offsetStep, 0)
+    end
+end
+
 function AdjustableCamera:actionEventCameraReset()
     -- print("AdjustableCamera.actionEventCameraReset");
     local spec = self.spec_adjustableCamera
@@ -106,6 +120,10 @@ function AdjustableCamera:onRegisterActionEvents(isActiveForInput, isActiveForIn
             _, actionEventId = self:addActionEvent(AdjustableCamera.actionEvents, InputAction.ADJUSTABLE_CAMERA_RIGHT, self, AdjustableCamera.actionEventCameraRight, false, true, false, true, nil)
             g_inputBinding:setActionEventTextPriority(actionEventId, GS_PRIO_LOW)
             _, actionEventId = self:addActionEvent(AdjustableCamera.actionEvents, InputAction.ADJUSTABLE_CAMERA_RESET, self, AdjustableCamera.actionEventCameraReset, false, true, false, true, nil)
+            g_inputBinding:setActionEventTextPriority(actionEventId, GS_PRIO_LOW)
+            _, actionEventId = self:addActionEvent(AdjustableCamera.actionEvents, InputAction.ADJUSTABLE_CAMERA_DOWN, self, AdjustableCamera.actionEventCameraDown, false, true, false, true, nil)
+            g_inputBinding:setActionEventTextPriority(actionEventId, GS_PRIO_LOW)
+            _, actionEventId = self:addActionEvent(AdjustableCamera.actionEvents, InputAction.ADJUSTABLE_CAMERA_UP, self, AdjustableCamera.actionEventCameraUp, false, true, false, true, nil)
             g_inputBinding:setActionEventTextPriority(actionEventId, GS_PRIO_LOW)
         end
     end

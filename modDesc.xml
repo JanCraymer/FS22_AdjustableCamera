@@ -21,6 +21,8 @@
 		<action name="ADJUSTABLE_CAMERA_LEFT" axisType="HALF" />
 		<action name="ADJUSTABLE_CAMERA_RIGHT" axisType="HALF" />
 		<action name="ADJUSTABLE_CAMERA_RESET" axisType="HALF" />
+		<action name="ADJUSTABLE_CAMERA_DOWN" axisType="HALF" />
+		<action name="ADJUSTABLE_CAMERA_UP" axisType="HALF" />
 	</actions>
 
     <inputBinding>
@@ -29,5 +31,7 @@
 		<actionBinding action="ADJUSTABLE_CAMERA_LEFT"></actionBinding>
 		<actionBinding action="ADJUSTABLE_CAMERA_RIGHT"></actionBinding>
 		<actionBinding action="ADJUSTABLE_CAMERA_RESET"></actionBinding>
+		<actionBinding action="ADJUSTABLE_CAMERA_DOWN"></actionBinding>
+		<actionBinding action="ADJUSTABLE_CAMERA_UP"></actionBinding>
 	</inputBinding>
 </modDesc>
