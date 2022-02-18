@@ -113,18 +113,25 @@ function AdjustableCamera:onRegisterActionEvents(isActiveForInput, isActiveForIn
 
             local _, actionEventId = self:addActionEvent(AdjustableCamera.actionEvents, InputAction.ADJUSTABLE_CAMERA_FORWARD, self, AdjustableCamera.actionEventCameraForward, false, true, false, true, nil)
             g_inputBinding:setActionEventTextPriority(actionEventId, GS_PRIO_LOW)
+            g_inputBinding:setActionEventTextVisibility(actionEventId, false)
             _, actionEventId = self:addActionEvent(AdjustableCamera.actionEvents, InputAction.ADJUSTABLE_CAMERA_BACKWARD, self, AdjustableCamera.actionEventCameraBackward, false, true, false, true, nil)
             g_inputBinding:setActionEventTextPriority(actionEventId, GS_PRIO_LOW)
+            g_inputBinding:setActionEventTextVisibility(actionEventId, false)
             _, actionEventId = self:addActionEvent(AdjustableCamera.actionEvents, InputAction.ADJUSTABLE_CAMERA_LEFT, self, AdjustableCamera.actionEventCameraLeft, false, true, false, true, nil)
             g_inputBinding:setActionEventTextPriority(actionEventId, GS_PRIO_LOW)
+            g_inputBinding:setActionEventTextVisibility(actionEventId, false)
             _, actionEventId = self:addActionEvent(AdjustableCamera.actionEvents, InputAction.ADJUSTABLE_CAMERA_RIGHT, self, AdjustableCamera.actionEventCameraRight, false, true, false, true, nil)
             g_inputBinding:setActionEventTextPriority(actionEventId, GS_PRIO_LOW)
+            g_inputBinding:setActionEventTextVisibility(actionEventId, false)
             _, actionEventId = self:addActionEvent(AdjustableCamera.actionEvents, InputAction.ADJUSTABLE_CAMERA_RESET, self, AdjustableCamera.actionEventCameraReset, false, true, false, true, nil)
             g_inputBinding:setActionEventTextPriority(actionEventId, GS_PRIO_LOW)
+            g_inputBinding:setActionEventTextVisibility(actionEventId, false)
             _, actionEventId = self:addActionEvent(AdjustableCamera.actionEvents, InputAction.ADJUSTABLE_CAMERA_DOWN, self, AdjustableCamera.actionEventCameraDown, false, true, false, true, nil)
             g_inputBinding:setActionEventTextPriority(actionEventId, GS_PRIO_LOW)
+            g_inputBinding:setActionEventTextVisibility(actionEventId, false)
             _, actionEventId = self:addActionEvent(AdjustableCamera.actionEvents, InputAction.ADJUSTABLE_CAMERA_UP, self, AdjustableCamera.actionEventCameraUp, false, true, false, true, nil)
             g_inputBinding:setActionEventTextPriority(actionEventId, GS_PRIO_LOW)
+            g_inputBinding:setActionEventTextVisibility(actionEventId, false)
         end
     end
 end
