@@ -9,10 +9,10 @@
     <description>
         <en><![CDATA[This mod allows to move the position of the indoor camera.
 
-        Please configure your inputs as you wish as there are no defaults defined.]]></en>
+Please configure your inputs as you wish as there are no defaults defined.]]></en>
         <de><![CDATA[Dieser Mod ermöglicht es, die Innenansichtskameraposition anzupassen.
 
-Bitte richte dir die Tastenbelegung wie gewünscht ein. Es gibt keine Standardbelegung.]]></de>
+Bitte richte dir die Tastenbelegung ein, wie es dir am besten passt. Es gibt keine Standardbelegung.]]></de>
     </description>
     <iconFilename>icon.dds</iconFilename>
     <multiplayer supported="true"/>
