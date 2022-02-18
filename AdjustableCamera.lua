@@ -18,23 +18,24 @@ function AdjustableCamera:adjustCamera(offsetX, offsetY, offsetZ)
         local spec = self.spec_adjustableCamera
         local cam = self.spec_enterable.activeCamera
 
-        if cam.isInside then
-            spec.cameraChanged = true
-            
-            if spec.origTransX == nil then spec.origTransX = cam.transDirX end
-            if spec.origTransY == nil then spec.origTransY = cam.transDirY end
-            if spec.origTransZ == nil then spec.origTransZ = cam.transDirZ end
-
-            cam.transDirX = cam.transDirX + offsetX
-            cam.transDirY = cam.transDirY + offsetY
-            cam.transDirZ = cam.transDirZ + offsetZ
-            
-            if cam.headTrackingNode ~= nil then
+        if cam ~= nil and cam.isInside then
+            if g_gameSettings:getValue("isHeadTrackingEnabled") and cam.headTrackingNode ~= nil then
+                spec.htCameraChanged = true
                 local htX, htY, htZ = getTranslation(cam.headTrackingNode)
                 if spec.origHtX == nil then spec.origHtX = htX end
                 if spec.origHtY == nil then spec.origHtY = htY end
                 if spec.origHtZ == nil then spec.origHtZ = htZ end
                 setTranslation(cam.headTrackingNode, htX + offsetX, htY + offsetY, htZ + offsetZ)
+            else
+                spec.cameraChanged = true
+
+                if spec.origTransX == nil then spec.origTransX = cam.transDirX end
+                if spec.origTransY == nil then spec.origTransY = cam.transDirY end
+                if spec.origTransZ == nil then spec.origTransZ = cam.transDirZ end
+
+                cam.transDirX = cam.transDirX + offsetX
+                cam.transDirY = cam.transDirY + offsetY
+                cam.transDirZ = cam.transDirZ + offsetZ
             end
         end
     end
@@ -84,17 +85,16 @@ end
 
 function AdjustableCamera:actionEventCameraReset()
     -- print("AdjustableCamera.actionEventCameraReset");
-    local spec = self.spec_adjustableCamera
-    if self.isClient and spec.cameraChanged ~= nil then
+    if self.isClient then
+        local spec = self.spec_adjustableCamera
         local cam = self.spec_enterable.activeCamera
-
-        if cam.isInside then
-            cam.transDirX = spec.origTransX
-            cam.transDirY = spec.origTransY
-            cam.transDirZ = spec.origTransZ
-            
-            if cam.headTrackingNode ~= nil then
+        if cam ~= nil and cam.isInside then
+            if g_gameSettings:getValue("isHeadTrackingEnabled") and cam.headTrackingNode ~= nil and spec.htCameraChanged ~=nil then
                 setTranslation(cam.headTrackingNode, spec.origHtX, spec.origHtY, spec.origHtZ)
+            elseif spec.cameraChanged ~= nil then
+                cam.transDirX = spec.origTransX
+                cam.transDirY = spec.origTransY
+                cam.transDirZ = spec.origTransZ
             end
         end
     end
