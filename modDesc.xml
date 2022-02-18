@@ -4,9 +4,15 @@
     <version>0.1.0.0</version>
     <title>
         <en>Adjustable Camera</en>
+        <de>Anpassbare Kamera</de>
     </title>
     <description>
-        <en><![CDATA[Adjustable Camera]]></en>
+        <en><![CDATA[This mod allows to move the position of the indoor camera.
+
+        Please configure your inputs as you wish as there are no defaults defined.]]></en>
+        <de><![CDATA[Dieser Mod ermöglicht es, die Innenansichtskameraposition anzupassen.
+
+Bitte richte dir die Tastenbelegung wie gewünscht ein. Es gibt keine Standardbelegung.]]></de>
     </description>
     <iconFilename>icon.dds</iconFilename>
     <multiplayer supported="true"/>
@@ -16,22 +22,53 @@
     </extraSourceFiles>
 
     <actions>
-		<action name="ADJUSTABLE_CAMERA_FORWARD" axisType="HALF" />
-		<action name="ADJUSTABLE_CAMERA_BACKWARD" axisType="HALF" />
-		<action name="ADJUSTABLE_CAMERA_LEFT" axisType="HALF" />
-		<action name="ADJUSTABLE_CAMERA_RIGHT" axisType="HALF" />
-		<action name="ADJUSTABLE_CAMERA_RESET" axisType="HALF" />
-		<action name="ADJUSTABLE_CAMERA_DOWN" axisType="HALF" />
-		<action name="ADJUSTABLE_CAMERA_UP" axisType="HALF" />
-	</actions>
+        <action name="ADJUSTABLE_CAMERA_FORWARD" axisType="HALF"/>
+        <action name="ADJUSTABLE_CAMERA_BACKWARD" axisType="HALF"/>
+        <action name="ADJUSTABLE_CAMERA_LEFT" axisType="HALF"/>
+        <action name="ADJUSTABLE_CAMERA_RIGHT" axisType="HALF"/>
+        <action name="ADJUSTABLE_CAMERA_DOWN" axisType="HALF"/>
+        <action name="ADJUSTABLE_CAMERA_UP" axisType="HALF"/>
+        <action name="ADJUSTABLE_CAMERA_RESET" axisType="HALF"/>
+    </actions>
 
     <inputBinding>
-		<actionBinding action="ADJUSTABLE_CAMERA_FORWARD"></actionBinding>
-		<actionBinding action="ADJUSTABLE_CAMERA_BACKWARD"></actionBinding>
-		<actionBinding action="ADJUSTABLE_CAMERA_LEFT"></actionBinding>
-		<actionBinding action="ADJUSTABLE_CAMERA_RIGHT"></actionBinding>
-		<actionBinding action="ADJUSTABLE_CAMERA_RESET"></actionBinding>
-		<actionBinding action="ADJUSTABLE_CAMERA_DOWN"></actionBinding>
-		<actionBinding action="ADJUSTABLE_CAMERA_UP"></actionBinding>
-	</inputBinding>
+        <actionBinding action="ADJUSTABLE_CAMERA_FORWARD"></actionBinding>
+        <actionBinding action="ADJUSTABLE_CAMERA_BACKWARD"></actionBinding>
+        <actionBinding action="ADJUSTABLE_CAMERA_LEFT"></actionBinding>
+        <actionBinding action="ADJUSTABLE_CAMERA_RIGHT"></actionBinding>
+        <actionBinding action="ADJUSTABLE_CAMERA_DOWN"></actionBinding>
+        <actionBinding action="ADJUSTABLE_CAMERA_UP"></actionBinding>
+        <actionBinding action="ADJUSTABLE_CAMERA_RESET"></actionBinding>
+    </inputBinding>
+
+    <l10n>
+        <text name="input_ADJUSTABLE_CAMERA_FORWARD">
+            <en>Move camera forward</en>
+            <de>Kamera nach vorn bewegen</de>
+        </text>
+        <text name="input_ADJUSTABLE_CAMERA_BACKWARD">
+            <en>Move camera backward</en>
+            <de>Kamera nach hinten bewegen</de>
+        </text>
+        <text name="input_ADJUSTABLE_CAMERA_LEFT">
+            <en>Move camera to the left</en>
+            <de>Kamera nach links bewegen</de>
+        </text>
+        <text name="input_ADJUSTABLE_CAMERA_RIGHT">
+            <en>Move camera to the right</en>
+            <de>Kamera nach rechts bewegen</de>
+        </text>
+        <text name="input_ADJUSTABLE_CAMERA_DOWN">
+            <en>Move camera down</en>
+            <de>Kamera nach unten bewegen</de>
+        </text>
+        <text name="input_ADJUSTABLE_CAMERA_UP">
+            <en>Move camera up</en>
+            <de>Kamera nach unten bewegen</de>
+        </text>
+        <text name="input_ADJUSTABLE_CAMERA_RESET">
+            <en>Reset camera</en>
+            <de>Kamera zurücksetzen</de>
+        </text>
+    </l10n>
 </modDesc>
