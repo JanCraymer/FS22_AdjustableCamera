@@ -64,7 +64,7 @@ Bitte richte dir die Tastenbelegung ein, wie es dir am besten passt. Es gibt kei
         </text>
         <text name="input_ADJUSTABLE_CAMERA_UP">
             <en>Move camera up</en>
-            <de>Kamera nach unten bewegen</de>
+            <de>Kamera nach oben bewegen</de>
         </text>
         <text name="input_ADJUSTABLE_CAMERA_RESET">
             <en>Reset camera</en>
