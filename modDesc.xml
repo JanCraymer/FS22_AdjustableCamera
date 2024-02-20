@@ -5,6 +5,7 @@
     <title>
         <en>Adjustable Camera</en>
         <de>Anpassbare Kamera</de>
+        <ru>Перемещаемая Камера</ru>
     </title>
     <description>
         <en><![CDATA[This mod allows to move the position of the indoor camera.
@@ -45,30 +46,37 @@ Bitte richte dir die Tastenbelegung ein, wie es dir am besten passt. Es gibt kei
         <text name="input_ADJUSTABLE_CAMERA_FORWARD">
             <en>Move camera forward</en>
             <de>Kamera nach vorn bewegen</de>
+            <ru>Переместить камеру вперёд</ru>
         </text>
         <text name="input_ADJUSTABLE_CAMERA_BACKWARD">
             <en>Move camera backward</en>
             <de>Kamera nach hinten bewegen</de>
+            <ru>Переместить камеру назад</ru>
         </text>
         <text name="input_ADJUSTABLE_CAMERA_LEFT">
             <en>Move camera to the left</en>
             <de>Kamera nach links bewegen</de>
+            <ru>Переместить камеру влево</ru>
         </text>
         <text name="input_ADJUSTABLE_CAMERA_RIGHT">
             <en>Move camera to the right</en>
             <de>Kamera nach rechts bewegen</de>
+            <ru>Переместить камеру вправо</ru>
         </text>
         <text name="input_ADJUSTABLE_CAMERA_DOWN">
             <en>Move camera down</en>
             <de>Kamera nach unten bewegen</de>
+            <ru>Переместить камеру вниз</ru>
         </text>
         <text name="input_ADJUSTABLE_CAMERA_UP">
             <en>Move camera up</en>
             <de>Kamera nach oben bewegen</de>
+            <ru>Переместить камеру вверх</ru>
         </text>
         <text name="input_ADJUSTABLE_CAMERA_RESET">
             <en>Reset camera</en>
             <de>Kamera zurücksetzen</de>
+            <ru>Отменить перемещения камеры</ru>
         </text>
     </l10n>
 </modDesc>
