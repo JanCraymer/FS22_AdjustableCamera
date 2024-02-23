@@ -13,3 +13,9 @@ if unzip -t "$ZIPFILE" > /dev/null; then
 else
     echo "Zip file integrity check failed."
 fi
+
+if [ -n "$1" ]; then
+    echo "copy $ZIPFILE to $1"
+    cp $ZIPFILE "$1"
+    echo "Done."
+fi
