@@ -1,6 +1,11 @@
 AdjustableCamera = {}
 
+if AdjustableCamera.modName == nil then AdjustableCamera.modName = g_currentModName end
 AdjustableCamera.offsetStep = 0.02
+
+function AdjustableCamera:onLoad(savegame)    
+    self.spec_adjustableCamera = self["spec_"..AdjustableCamera.modName..".AdjustableCamera"]
+end
 
 function AdjustableCamera.prerequisitesPresent(specializations)
     return true
@@ -138,6 +143,6 @@ end
 
 function AdjustableCamera.registerEventListeners(vehicleType)
     -- print("AdjustableCamera.registerEventListeners");    
-    -- SpecializationUtil.registerEventListener(vehicleType, "onLoad", AdjustableCamera);
+    SpecializationUtil.registerEventListener(vehicleType, "onLoad", AdjustableCamera);
     SpecializationUtil.registerEventListener(vehicleType, "onRegisterActionEvents", AdjustableCamera);
 end

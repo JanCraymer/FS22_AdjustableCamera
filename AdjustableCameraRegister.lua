@@ -1,6 +1,6 @@
-if g_specializationManager:getSpecializationByName("adjustableCamera") == nil then
+if g_specializationManager:getSpecializationByName("AdjustableCamera") == nil then
     g_specializationManager:addSpecialization(
-      "adjustableCamera", 
+      "AdjustableCamera", 
       "AdjustableCamera", 
       Utils.getFilename("AdjustableCamera.lua", 
       g_currentModDirectory), 
@@ -15,6 +15,6 @@ for typeName, typeEntry in pairs(g_vehicleTypeManager.types) do
      
   
   then
-       g_vehicleTypeManager:addSpecialization(typeName, "adjustableCamera")
+       g_vehicleTypeManager:addSpecialization(typeName, "AdjustableCamera")
   end
 end
