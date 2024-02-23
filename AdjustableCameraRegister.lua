@@ -4,7 +4,7 @@ if g_specializationManager:getSpecializationByName("adjustableCamera") == nil th
       "AdjustableCamera", 
       Utils.getFilename("AdjustableCamera.lua", 
       g_currentModDirectory), 
-      true
+      nil
     )
 end
 
