@@ -23,7 +23,7 @@ function AdjustableCamera:adjustCamera(offsetX, offsetY, offsetZ)
         local spec = self.spec_adjustableCamera
         local cam = self.spec_enterable.activeCamera
 
-        if cam ~= nil and cam.isInside then
+        if cam ~= nil and (cam.hasExtraRotationNode == nil or cam.hasExtraRotationNode == false) then
             if g_gameSettings:getValue("isHeadTrackingEnabled") and cam.headTrackingNode ~= nil then
                 spec.htCameraChanged = true
                 local htX, htY, htZ = getTranslation(cam.headTrackingNode)
@@ -37,10 +37,20 @@ function AdjustableCamera:adjustCamera(offsetX, offsetY, offsetZ)
                 if spec.origTransX == nil then spec.origTransX = cam.transDirX end
                 if spec.origTransY == nil then spec.origTransY = cam.transDirY end
                 if spec.origTransZ == nil then spec.origTransZ = cam.transDirZ end
+                if spec.origZoom == nil then spec.origZoom = cam.zoom end
+                if spec.origZoomTarget == nil then spec.origZoomTarget = cam.zoomTarget end
+
+                -- Fix for crane cameras
+                if cam.zoom < 0.01 then
+                    cam.zoom = 1
+                    cam.zoomTarget = 1
+                end
 
                 cam.transDirX = cam.transDirX + offsetX
                 cam.transDirY = cam.transDirY + offsetY
                 cam.transDirZ = cam.transDirZ + offsetZ
+
+                cam.changedByAdjustableCameraMod = true
             end
         end
     end
@@ -93,13 +103,15 @@ function AdjustableCamera:actionEventCameraReset()
     if self.isClient then
         local spec = self.spec_adjustableCamera
         local cam = self.spec_enterable.activeCamera
-        if cam ~= nil and cam.isInside then
+        if cam ~= nil then
             if g_gameSettings:getValue("isHeadTrackingEnabled") and cam.headTrackingNode ~= nil and spec.htCameraChanged ~=nil then
                 setTranslation(cam.headTrackingNode, spec.origHtX, spec.origHtY, spec.origHtZ)
-            elseif spec.cameraChanged ~= nil then
+            elseif spec.cameraChanged ~= nil and cam.changedByAdjustableCameraMod ~= nil then
                 cam.transDirX = spec.origTransX
                 cam.transDirY = spec.origTransY
                 cam.transDirZ = spec.origTransZ
+                cam.zoom = spec.origZoom
+                cam.zoomTarget = spec.origZoomTarget
             end
         end
     end
